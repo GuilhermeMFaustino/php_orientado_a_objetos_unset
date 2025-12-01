@@ -4,24 +4,24 @@
 function saudacoes(): string
 {
 
-    $hora = date("H");
+    $hora = 0; //date("H");
 
     switch ($hora) {
 
-        case ($hora >= 0 and $hora <= 5):
-            $saudacoes = "Bom Madrugada.";
+        case ($hora > 0 and $hora <= 5):
+            $saudacoes = "Boa Madrugada.";
         break;
 
-        case ($hora >= 6 and $hora <= 12):
+        case ($hora >= 6 and $hora < 12):
             $saudacoes = "Bom dia";
         break;
 
-        case ($hora >= 12 and $hora <= 18):
-            $saudacoes = "boa Tarde";
+        case ($hora >= 12 and $hora < 19):
+            $saudacoes = "Boa Tarde";
         break;
 
-        case ($hora >= 18 and $hora <= 22):
-            $saudacoes = "boa Noite";
+        case ($hora > 18 and $hora < 0):
+            $saudacoes = "Boa Noite";
         break;
     }
     return $saudacoes;
