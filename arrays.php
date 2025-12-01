@@ -19,9 +19,10 @@ $meses = [
 //var_dump($meses);
 
 
-function dataAtual()
+function dataAtual(): string
 {
     $dia = date("w");
+    $diadaSemana = date("d");
     $mes = date("m");
     $ano = date("Y");
 
@@ -36,10 +37,27 @@ function dataAtual()
         "6" => "sabado"
     ];
 
+    $mesAno = [
+        "1" => "janeiro",
+        "2" => "fevereiro",
+        "3" => "marco",
+        "4" => "abril",
+        "5" => "maio",
+        "6" => "junho",
+        "7" => "julho",
+        "8" => "agosto",
+        "9" => "setembro",
+        "10" => "outubro",
+        "11" => "novembro",
+        "12" => "Dezembro"
+    ];
+
     foreach ($diasSemana as $d=>$b) {
-      if($d == $dia){
-        $dataformatada =  ($diasSemana[$d] == "sabado" ? "Sabado" : $diasSemana[$d]. "-feira").$mes . " de " . $ano;
-      }
+        foreach($mesAno as $meses=>$m){
+            if($d == $dia && $meses == $mes){
+              $dataformatada =  ($diasSemana[$d] == "sabado" ? "Sabado" : $diasSemana[$d]. "-feira").", ". $diadaSemana ." de ".$m . " de " . $ano;
+            }
+        }
     }
    return $dataformatada; 
 }
